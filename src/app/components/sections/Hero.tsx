@@ -2,7 +2,7 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import { useTheme } from "@/app/contexts/ThemeContext";
 import { STATS, img_residential } from "@/app/data";
-import { RCCLogo } from "@/app/components/RCCLogo";
+import rccLogoImg from "@/imports/rcc-logo.png";
 
 interface HeroProps {
   scrollTo: (href: string) => void;
@@ -53,7 +53,7 @@ export function Hero({ scrollTo }: HeroProps) {
               background: `rgba(${theme.accentRgb},0.1)`,
             }}
           >
-            <RCCLogo size={28} color={theme.accent} markOnly />
+            <img src={rccLogoImg} alt="RCC Logo" className="h-7 w-auto object-contain" style={{ filter: "brightness(0) invert(1)" }} />
             <span
               className="text-xs font-semibold uppercase tracking-widest"
               style={{ color: theme.accent, fontFamily: "'Poppins', sans-serif" }}
@@ -67,13 +67,12 @@ export function Hero({ scrollTo }: HeroProps) {
             className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-6"
             style={{ fontFamily: "'Poppins', sans-serif" }}
           >
-            Building Strong{" "}
-            <span style={{ color: theme.accent }}>Foundations</span>{" "}
-            for Tomorrow
+            Building Strong Foundations for a{" "}
+            <span style={{ color: theme.accent }}>Better Tomorrow</span>
           </h1>
 
           <p className="text-lg text-white/70 mb-10 leading-relaxed max-w-2xl" style={{ fontFamily: "'Inter', sans-serif" }}>
-            Professional Structural Engineering, RCC Design, Construction Consulting, Project Management, and Engineering Solutions for Residential, Commercial, and Industrial Projects.
+            Professional Structural Consulting & Designing, RCC Design, Construction Consulting, Project Management, and Engineering Solutions for Residential, Commercial, and Industrial Projects.
           </p>
 
           {/* CTAs */}

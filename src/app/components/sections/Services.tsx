@@ -23,7 +23,7 @@ export function Services() {
             Our Engineering Services
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive structural engineering and construction consulting solutions tailored to every project scale and complexity.
+            Comprehensive structural consulting & designing solutions tailored to every project scale and complexity.
           </p>
         </div>
 

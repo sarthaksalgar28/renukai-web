@@ -1,4 +1,4 @@
-import { Phone, Mail, Award, Linkedin, GraduationCap, Building2 } from "lucide-react";import { useTheme } from "@/app/contexts/ThemeContext";
+import { Phone, Mail, Award, Linkedin, GraduationCap, Building2, Home, Landmark, Layers } from "lucide-react";import { useTheme } from "@/app/contexts/ThemeContext";
 import kedarImg from "@/imports/kedar.jpg";
 
 interface TeamMember {
@@ -22,7 +22,7 @@ const TEAM: TeamMember[] = [
     phone: "9960404647",
     email: "renukaiconsultants@gmail.com",
     linkedin: "https://www.linkedin.com/in/kedar-kulkarni-2bb7ba179/",
-    note: "Experience in high-rise structures up to G+42 stories",
+    note: "High-rise RCC structures up to G+42 stories with post-tensioned slabs and seismic-zone design compliance.",
     isPrincipal: true,
   },
 ];
@@ -114,6 +114,18 @@ export function Team() {
                 <div className="flex items-start gap-3 p-4 rounded-2xl" style={{ background: "rgba(255,255,255,0.05)" }}>
                   <GraduationCap className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: theme.accent }} />
                   <p className="text-white/60 text-sm leading-relaxed">Bachelor of Engineering · Master of Engineering · BJS-MCJ</p>
+                </div>
+                <div className="flex items-start gap-3 p-4 rounded-2xl" style={{ background: `rgba(${theme.accentRgb},0.08)` }}>
+                  <Home className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: theme.accent }} />
+                  <p className="text-white/80 text-sm leading-relaxed">Extensive experience in residential projects — bungalows, row houses, and multi-storey apartments across Maharashtra.</p>
+                </div>
+                <div className="flex items-start gap-3 p-4 rounded-2xl" style={{ background: "rgba(255,255,255,0.05)" }}>
+                  <Landmark className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: theme.accent }} />
+                  <p className="text-white/60 text-sm leading-relaxed">Delivered structural designs for commercial complexes, IT parks, hospitals, and public infrastructure including railway buildings.</p>
+                </div>
+                <div className="flex items-start gap-3 p-4 rounded-2xl col-span-full" style={{ background: `rgba(${theme.accentRgb},0.06)` }}>
+                  <Layers className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: theme.accent }} />
+                  <p className="text-white/70 text-sm leading-relaxed">Proficient in steel structure design — pre-engineered buildings (PEB), industrial sheds, mezzanine floors, steel trusses, and composite steel-concrete systems using STAAD Pro and ETABS.</p>
                 </div>
               </div>
 

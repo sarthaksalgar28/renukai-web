@@ -15,7 +15,7 @@ export function About() {
             <div className="rounded-3xl overflow-hidden shadow-2xl ring-1" style={{ boxShadow: `0 25px 60px rgba(${theme.primaryRgb},0.15)`, ringColor: `rgba(${theme.accentRgb},0.2)` }}>
               <ImageWithFallback
                 src={img_aerial}
-                alt="Aerial view of RCC Structural Engineering township project"
+                alt="Aerial view of Renukai Consultants township project"
                 className="w-full h-[480px] object-cover"
               />
             </div>
@@ -24,8 +24,8 @@ export function About() {
               className="absolute -bottom-6 -right-6 p-5 rounded-2xl shadow-xl"
               style={{ background: theme.primary }}
             >
-              <div className="text-3xl font-bold mb-1" style={{ color: theme.accent, fontFamily: "'Poppins', sans-serif" }}>12+</div>
-              <div className="text-white text-xs font-medium">Years of<br />Excellence</div>
+              <div className="text-3xl font-bold mb-1" style={{ color: theme.accent, fontFamily: "'Poppins', sans-serif" }}>RCC</div>
+              <div className="text-white text-xs font-medium">Trusted<br />Consultants</div>
             </div>
             {/* Structural wireframe thumbnail */}
             <div
@@ -55,7 +55,7 @@ export function About() {
               Engineering Excellence,<br />Built on Trust
             </h2>
             <p className="text-muted-foreground mb-5 leading-relaxed">
-              Renukai Consultants &amp; Constructions (RCC) is a leading structural engineering and construction consulting firm with over 12 years of proven expertise. We specialize in the complete structural lifecycle — from concept design and analysis through construction supervision and quality certification.
+              Renukai Consultants &amp; Constructions (RCC) is a leading structural consulting &amp; designing firm. We specialize in the complete structural lifecycle — from concept design and analysis through construction supervision and quality certification.
             </p>
             <p className="text-muted-foreground mb-8 leading-relaxed">
               Our firm has successfully delivered over 150 projects spanning residential apartments, commercial complexes, industrial structures, and critical infrastructure including railway station buildings across Maharashtra and beyond.
@@ -65,7 +65,7 @@ export function About() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
               {[
                 { label: "Mission", text: "Delivering safe, efficient, and economical structural solutions that stand the test of time." },
-                { label: "Vision", text: "To be Maharashtra's most trusted structural engineering practice, known for precision and integrity." },
+                { label: "Vision", text: "To be Maharashtra's most trusted structural consulting & designing practice, known for precision and integrity." },
                 { label: "Values", text: "Safety First · Technical Excellence · Client Commitment · Timely Delivery" },
               ].map((item) => (
                 <div

@@ -63,7 +63,7 @@ export function Contact() {
             Contact Us
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Ready to start your structural engineering project? Reach out for a free initial consultation.
+            Ready to start your structural consulting project? Reach out for a free initial consultation.
           </p>
         </div>
 
@@ -162,7 +162,7 @@ export function Contact() {
                     >
                       <option value="">Select a service</option>
                       <option>RCC Structural Design</option>
-                      <option>Structural Analysis</option>
+                      <option>Steel Structural Design</option>
                       <option>Project Management</option>
                       <option>Structural Audit</option>
                       <option>Retrofitting</option>

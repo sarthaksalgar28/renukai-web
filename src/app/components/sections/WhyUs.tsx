@@ -20,7 +20,7 @@ export function WhyUs() {
               className="text-4xl font-bold mb-6 leading-tight"
               style={{ color: theme.primary, fontFamily: "'Poppins', sans-serif" }}
             >
-              Why Choose RCC<br />Structural Engineering?
+              Why Choose RCC<br />Structural Consulting?
             </h2>
             <p className="text-muted-foreground mb-8 leading-relaxed">
               Clients across Maharashtra trust us because we combine deep technical expertise with a genuine commitment to their project's success. Here is what sets us apart:

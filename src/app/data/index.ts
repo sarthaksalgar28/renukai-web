@@ -1,14 +1,14 @@
 import {
-  Layers, Search, Home, Building2, Factory, HardHat,
-  Briefcase, Ruler, Wrench, ClipboardList, PenTool, Calculator,
-  Award, TrendingUp, Shield, Clock, Users, Zap, FileSearch,
+  Layers, Layers3, Search, Home, Building2, Factory, HardHat,
+  Briefcase, Ruler, Wrench, Award, TrendingUp, Shield, Clock, Users, Zap, FileSearch,
 } from "lucide-react";
 import type { NavLink, Stat, Service, WhyUsItem, Project, ProcessStep, Testimonial, FAQ, Theme } from "@/app/types";
 
 import img_om_apartment from "@/imports/OM_BUILDERS_APARTMENT_VIEW_4.png";
+import img_elite_township from "@/imports/elite_township.jpg";
 import img_aerial from "@/imports/IMG-20250909-WA0034.jpg";
 import img_residential from "@/imports/IMG-20250909-WA0018.jpg";
-import img_elite_gate from "@/imports/IMG-20250909-WA0019.jpg";
+import img_multistorey from "@/imports/multistoreyresidential.jpg";
 import img_structural from "@/imports/Screenshot__16_.png";
 import img_s14 from "@/imports/Screenshot__14_.png";
 import img_s15 from "@/imports/Screenshot__15_.png";
@@ -32,11 +32,10 @@ import img_ombuilder_r2 from "@/imports/ombuilder2.png";
 import img_ombuilder_r3 from "@/imports/ombuilder3.png";
 import img_ombuilder_r4 from "@/imports/ombuilder4.png";
 import img_panchshil_r1 from "@/imports/PANnchshil1.png";
-import img_panchshil_r2 from "@/imports/panchshil2.png";
 import img_birajdar_r1 from "@/imports/birajdar1.png";
 import img_birajdar_r2 from "@/imports/birajdar2.png";
 
-export { img_om_apartment, img_aerial, img_residential, img_elite_gate, img_structural, img_s14, img_s15, img_s17, img_s18, img_s19, img_jspm, img_jspm1, img_jspm2, img_mit_r1, img_mit_r2, img_mit_r3, img_mit_r4, img_mit_r5, img_mit_r6, img_mit_r7, img_rajmane_r1, img_rajmane_r2, img_ombuilder_r1, img_ombuilder_r2, img_ombuilder_r3, img_ombuilder_r4, img_panchshil_r1, img_panchshil_r2, img_birajdar_r1, img_birajdar_r2 };
+export { img_om_apartment, img_aerial, img_elite_township, img_residential, img_multistorey, img_structural, img_s14, img_s15, img_s17, img_s18, img_s19, img_jspm, img_jspm1, img_jspm2, img_mit_r1, img_mit_r2, img_mit_r3, img_mit_r4, img_mit_r5, img_mit_r6, img_mit_r7, img_rajmane_r1, img_rajmane_r2, img_ombuilder_r1, img_ombuilder_r2, img_ombuilder_r3, img_ombuilder_r4, img_panchshil_r1, img_birajdar_r1, img_birajdar_r2 };
 
 export const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "#home" },
@@ -59,24 +58,22 @@ export const SERVICES: Service[] = [
   { icon: Search, title: "Structural Analysis", desc: "Advanced analysis using STAAD Pro, ETABS, and manual methods to determine load paths and structural behavior." },
   { icon: Home, title: "Residential Building Design", desc: "Custom structural design for bungalows, row houses, villas, and multi-storey residential apartments." },
   { icon: Building2, title: "Commercial Building Design", desc: "Structural solutions for offices, malls, hotels, and commercial complexes with optimal column spacing." },
-  { icon: Factory, title: "Industrial Structure Design", desc: "Heavy-duty industrial sheds, warehouses, and pre-engineered building structural design." },
+  { icon: Factory, title: "Structural Design", desc: "Heavy-duty industrial sheds, warehouses, and pre-engineered building structural design." },
   { icon: HardHat, title: "Construction Supervision", desc: "On-site quality supervision ensuring construction conforms to approved structural drawings and standards." },
   { icon: Briefcase, title: "Project Management", desc: "End-to-end project management including scheduling, resource planning, and progress monitoring (PMC Services)." },
   { icon: Ruler, title: "Site Inspection", desc: "Detailed structural site inspections, condition assessments, and structural audit reports for existing buildings." },
   { icon: Wrench, title: "Retrofitting & Rehabilitation", desc: "Strengthening of distressed structures using FRP jacketing, column jacketing, and modern repair techniques." },
-  { icon: ClipboardList, title: "Quantity Estimation", desc: "Accurate BOQ preparation, rate analysis, and quantity estimation for tendering and budgeting purposes." },
-  { icon: PenTool, title: "CAD Drafting Services", desc: "Detailed structural drawings, bar bending schedules, and shop drawings using AutoCAD and Revit." },
-  { icon: Calculator, title: "Engineering Consultation", desc: "Expert structural engineering consultation for feasibility studies, due diligence, and dispute resolution." },
+  { icon: Layers3, title: "BIM Services", desc: "Building Information Modeling (BIM) for coordinated 3D structural models, clash detection, quantity take-offs, and seamless collaboration across architectural, MEP, and structural disciplines — delivered in Revit and compatible formats." },
   { icon: Zap, title: "Post Tensioning & Pre Tensioning Works", desc: "Design and supervision of post-tensioned and pre-tensioned slabs, beams, and bridge elements for long spans and load-intensive structures." },
   { icon: FileSearch, title: "Structural Auditing", desc: "Comprehensive structural audit of existing buildings including condition assessment, load-carrying capacity evaluation, crack mapping, and written audit certification." },
 ];
 
 export const WHY_US: WhyUsItem[] = [
   { icon: Award, title: "Certified Engineers", desc: "Our team comprises licensed structural engineers with advanced degrees and professional certifications from leading institutions." },
-  { icon: TrendingUp, title: "12+ Years Experience", desc: "Over a decade of executing complex structural projects across residential, commercial, industrial, and infrastructure sectors." },
+  { icon: TrendingUp, title: "Proven Expertise", desc: "Executing complex structural projects across residential, commercial, industrial, and infrastructure sectors." },
   { icon: Shield, title: "Quality Assurance", desc: "Rigorous design checks, peer reviews, and adherence to IS codes, NBC, and international standards on every project." },
   { icon: Clock, title: "Timely Delivery", desc: "We respect project schedules. Systematic planning and monitoring ensure your structural designs are delivered on time." },
-  { icon: Calculator, title: "Cost-Effective Solutions", desc: "Optimized structural designs that reduce material usage while maintaining full safety — saving significant construction costs." },
+  { icon: Briefcase, title: "Cost-Effective Solutions", desc: "Optimized structural designs that reduce material usage while maintaining full safety — saving significant construction costs." },
   { icon: Users, title: "Modern Engineering Practices", desc: "Latest software tools, BIM workflows, and contemporary design methodologies for precision engineering outcomes." },
 ];
 
@@ -91,7 +88,7 @@ export const PROJECTS: Project[] = [
     client: "OM Builders",
   },
   {
-    image: img_aerial,
+    image: img_elite_township,
     title: "84 Elite – Township Development",
     location: "Latur, Maharashtra",
     category: "Residential",
@@ -99,21 +96,14 @@ export const PROJECTS: Project[] = [
     client: "JK Associates",
   },
   {
-    image: img_residential,
+    image: img_multistorey,
     title: "Multi-Storey Residential Complex",
     location: "Solapur, Maharashtra",
     category: "Residential",
     services: "RCC Structural Design, Site Inspection",
     client: "Confidential",
   },
-  {
-    image: img_elite_gate,
-    title: "84 Elite – Entry Plaza & Gate",
-    location: "Latur, Maharashtra",
-    category: "Infrastructure",
-    services: "Structural Design, CAD Drafting",
-    client: "JK Associates",
-  },
+
   {
     image: img_jspm1,
     images: [img_jspm1, img_jspm2],
@@ -144,7 +134,6 @@ export const PROJECTS: Project[] = [
   },
   {
     image: img_panchshil_r1,
-    images: [img_panchshil_r1, img_panchshil_r2],
     title: "Panchshil Developers – G+5 Residential Apartment",
     location: "Latur, Maharashtra",
     category: "Residential",
@@ -160,14 +149,7 @@ export const PROJECTS: Project[] = [
     services: "RCC Structural Design, Construction Supervision",
     client: "Tushar Birajdar",
   },
-  {
-    image: img_aerial,
-    title: "Central Railways – Station Buildings",
-    location: "Solapur Division, Maharashtra",
-    category: "Infrastructure",
-    services: "Parcel Office Buildings, Community Hall, Entrance Gate Design",
-    client: "Central Railways Solapur Division",
-  },
+
 ];
 
 export const PROCESS_STEPS: ProcessStep[] = [
@@ -184,7 +166,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     name: "Rajesh Patil",
     position: "Director, OM Builders",
-    review: "RCC Structural Engineering delivered an exceptional structural design for our P+6 apartment project. The team's technical depth and attention to detail gave us complete confidence throughout the project.",
+    review: "Renukai Consultants delivered an exceptional structural design for our P+6 apartment project. The team's technical depth and attention to detail gave us complete confidence throughout the project.",
     rating: 5,
     avatar: "RP",
   },
@@ -198,23 +180,17 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     name: "Dr. S. Mehta",
     position: "Dean (Infrastructure), JSPM Institutes",
-    review: "We engaged RCC Structural for our G+7 college building with post-tensioning. The team demonstrated exemplary expertise and the structural audit report was extremely thorough.",
+    review: "We engaged RCC Consultants for our G+7 college building with post-tensioning. The team demonstrated exemplary expertise and the structural audit report was extremely thorough.",
     rating: 5,
     avatar: "SM",
   },
-  {
-    name: "Pradeep Sharma",
-    position: "Project Manager, Central Railways",
-    review: "From parcel office buildings to community halls across multiple stations, RCC Structural Engineering proved to be a highly reliable and technically sound partner for our railway infrastructure projects.",
-    rating: 5,
-    avatar: "PS",
-  },
+
 ];
 
 export const FAQS: FAQ[] = [
   {
     q: "What engineering services do you provide?",
-    a: "We offer a comprehensive range of structural engineering services including RCC structural design, structural analysis, residential and commercial building design, industrial structure design, construction supervision, project management (PMC), site inspection, structural audit, retrofitting, quantity estimation, and CAD drafting services.",
+    a: "We offer a comprehensive range of structural consulting & designing services including RCC structural design, structural analysis, residential and commercial building design, structural design, construction supervision, project management (PMC), site inspection, structural audit, retrofitting, quantity estimation, and CAD drafting services.",
   },
   {
     q: "Do you handle residential projects of all scales?",
@@ -238,7 +214,7 @@ export const CATEGORY_COLORS: Record<string, string> = {
   Residential: "bg-blue-100 text-blue-800",
   Commercial: "bg-purple-100 text-purple-800",
   Industrial: "bg-orange-100 text-orange-800",
-  Infrastructure: "bg-emerald-100 text-emerald-800",
+
 };
 
 export const THEMES: Theme[] = [

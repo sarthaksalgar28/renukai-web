@@ -1,7 +1,7 @@
 import { Phone, Mail, MapPin, ChevronRight, Instagram, Linkedin } from "lucide-react";
 import { useTheme } from "@/app/contexts/ThemeContext";
 import { NAV_LINKS, SERVICES } from "@/app/data";
-import { RCCLogo } from "@/app/components/RCCLogo";
+import rccLogoImg from "@/imports/rcc-logo.png";
 
 interface FooterProps {
   scrollTo: (href: string) => void;
@@ -23,10 +23,10 @@ export function Footer({ scrollTo }: FooterProps) {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="mb-5">
-              <RCCLogo size={56} color="white" accentColor={theme.accent} />
+              <img src={rccLogoImg} alt="RCC Logo" className="h-20 w-auto object-contain" style={{ filter: "brightness(0) invert(1)" }} />
             </div>
             <p className="text-sm leading-relaxed mb-5 text-white/50">
-              Professional structural engineering and construction consulting firm serving clients across Maharashtra with integrity and engineering excellence.
+              Professional structural consulting & designing firm serving clients across Maharashtra with integrity and engineering excellence.
             </p>
             <div className="flex gap-3">
               {[
@@ -130,7 +130,7 @@ export function Footer({ scrollTo }: FooterProps) {
             © 2026 Renukai Consultants &amp; Constructions. All rights reserved.
           </p>
           <p className="text-xs text-white/25">
-            Structural Engineering · RCC Design · Construction Consulting · Maharashtra
+            Structural Consulting & Designing · RCC Design · Construction Consulting · Maharashtra
           </p>
         </div>
       </div>

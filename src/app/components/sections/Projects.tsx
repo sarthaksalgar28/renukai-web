@@ -6,7 +6,7 @@ import { PROJECTS, CATEGORY_COLORS } from "@/app/data";
 import { ProjectGallery } from "@/app/components/sections/ProjectGallery";
 import type { Project } from "@/app/types";
 
-const FILTERS = ["All", "Residential", "Commercial", "Industrial", "Infrastructure"];
+const FILTERS = ["All", "Residential", "Commercial", "Industrial"];
 
 export function Projects() {
   const { theme } = useTheme();
@@ -35,7 +35,7 @@ export function Projects() {
             Completed Projects
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto mb-8">
-            A showcase of structural engineering projects delivered across residential, commercial, and infrastructure sectors.
+            A showcase of structural consulting & designing projects delivered across residential, commercial, and infrastructure sectors.
           </p>
 
           {/* Filter buttons */}

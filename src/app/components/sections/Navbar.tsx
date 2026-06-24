@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Phone, Menu, X, ChevronRight } from "lucide-react";
 import { useTheme } from "@/app/contexts/ThemeContext";
 import { NAV_LINKS } from "@/app/data";
-import { RCCLogo } from "@/app/components/RCCLogo";
+import rccLogoImg from "@/imports/rcc-logo.png";
 
 interface NavbarProps {
   scrollTo: (href: string) => void;
@@ -30,7 +30,7 @@ export function Navbar({ scrollTo }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between" style={{ height: "72px" }}>
         {/* Logo */}
         <div className="cursor-pointer" onClick={() => scrollTo("#home")}>
-          <RCCLogo size={44} color="white" accentColor={theme.accent} />
+          <img src={rccLogoImg} alt="RCC Logo" className="h-20 w-auto object-contain" style={{ filter: "brightness(0) invert(1)" }} />
         </div>
 
         {/* Desktop nav */}
