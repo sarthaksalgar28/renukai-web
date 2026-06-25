@@ -1,5 +1,5 @@
 import {
-  Layers, Layers3, Factory, HardHat,
+  Layers3, Factory, HardHat,
   Briefcase, Ruler, Wrench, Award, TrendingUp, Shield, Clock, Users, Zap, FileSearch,
 } from "lucide-react";
 import type { NavLink, Stat, Service, WhyUsItem, Project, ProcessStep, Testimonial, FAQ, Theme } from "@/app/types";
@@ -76,7 +76,6 @@ export const STATS: Stat[] = [
 ];
 
 export const SERVICES: Service[] = [
-  { icon: Layers, title: "RCC Structural Design", desc: "Complete reinforced cement concrete structural design for all building types, ensuring structural integrity and code compliance." },
   { icon: Factory, title: "Steel Structural Design", desc: "Heavy-duty industrial sheds, warehouses, and pre-engineered building steel structural design." },
   { icon: HardHat, title: "Construction Supervision", desc: "On-site quality supervision ensuring construction conforms to approved structural drawings and standards." },
   { icon: Briefcase, title: "Project Management", desc: "End-to-end project management including scheduling, resource planning, and progress monitoring (PMC Services)." },
