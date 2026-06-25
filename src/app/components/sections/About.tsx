@@ -58,7 +58,7 @@ export function About() {
               Renukai Consultants &amp; Constructions (RCC) is a leading structural consulting &amp; designing firm. We specialize in the complete structural lifecycle — from concept design and analysis through construction supervision and quality certification.
             </p>
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              Our firm has successfully delivered over 150 projects spanning residential apartments, commercial complexes, industrial structures, and critical infrastructure including railway station buildings across Maharashtra and beyond.
+              Our firm has successfully delivered over 150 projects spanning Residential Apartments, Commercial Complexes, Industrial Structures, and critical infrastructure including railway station buildings across Maharashtra and beyond.
             </p>
 
             {/* Mission / Vision / Values */}

@@ -1,7 +1,7 @@
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import { useTheme } from "@/app/contexts/ThemeContext";
-import { STATS, img_residential } from "@/app/data";
+import { STATS, img_mit_r7 } from "@/app/data";
 import rccLogoImg from "@/imports/rcc-logo.png";
 
 interface HeroProps {
@@ -16,13 +16,13 @@ export function Hero({ scrollTo }: HeroProps) {
       {/* Background image */}
       <div className="absolute inset-0">
         <ImageWithFallback
-          src={img_residential}
+          src={img_mit_r7}
           alt="Modern multi-storey residential building structural project"
-          className="w-full h-full object-cover opacity-25"
+          className="w-full h-full object-cover opacity-60"
         />
         <div
           className="absolute inset-0"
-          style={{ background: `linear-gradient(135deg, ${theme.heroOverlay} 0%, ${theme.heroOverlay.replace("0.92", "0.80")} 50%, ${theme.heroOverlay.replace("0.92", "0.95")} 100%)` }}
+          style={{ background: `linear-gradient(135deg, ${theme.heroOverlay.replace(/0\.9[0-9]/,"0.52")} 0%, ${theme.heroOverlay.replace(/0\.9[0-9]/,"0.42")} 50%, ${theme.heroOverlay.replace(/0\.9[0-9]/,"0.60")} 100%)` }}
         />
       </div>
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Phone, Menu, X, ChevronRight } from "lucide-react";
+import { Phone, Menu, X, ChevronRight, Palette, Check } from "lucide-react";
 import { useTheme } from "@/app/contexts/ThemeContext";
 import { NAV_LINKS } from "@/app/data";
 import rccLogoImg from "@/imports/rcc-logo.png";
@@ -9,9 +9,10 @@ interface NavbarProps {
 }
 
 export function Navbar({ scrollTo }: NavbarProps) {
-  const { theme } = useTheme();
+  const { theme, themes, setThemeId } = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [themeOpen, setThemeOpen] = useState(false);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60);
@@ -51,7 +52,7 @@ export function Navbar({ scrollTo }: NavbarProps) {
           ))}
         </nav>
 
-        {/* CTA */}
+        {/* CTA + Theme switcher */}
         <div className="hidden md:flex items-center gap-3">
           <a
             href="https://wa.me/919960404647"
@@ -66,6 +67,46 @@ export function Navbar({ scrollTo }: NavbarProps) {
             <Phone className="w-4 h-4" />
             Get Consultation
           </a>
+
+          {/* Theme switcher */}
+          <div className="relative">
+            <button
+              onClick={() => setThemeOpen(!themeOpen)}
+              className="w-9 h-9 rounded-lg flex items-center justify-center transition-all hover:scale-110 active:scale-95"
+              style={{ background: `linear-gradient(135deg, ${theme.primary}, ${theme.accent})` }}
+              aria-label="Switch theme"
+              title="Switch theme"
+            >
+              <Palette className="w-4 h-4 text-white" />
+            </button>
+            {themeOpen && (
+              <div
+                className="absolute right-0 top-11 rounded-2xl shadow-2xl border overflow-hidden min-w-[200px] z-50"
+                style={{ background: "white", borderColor: "rgba(0,0,0,0.1)" }}
+              >
+                <div className="px-4 py-3 border-b" style={{ borderColor: "rgba(0,0,0,0.06)" }}>
+                  <p className="text-xs font-bold uppercase tracking-wider text-gray-500">Choose Theme</p>
+                </div>
+                {themes.map((t) => (
+                  <button
+                    key={t.id}
+                    onClick={() => { setThemeId(t.id); setThemeOpen(false); }}
+                    className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <div className="flex gap-1 flex-shrink-0">
+                      <div className="w-4 h-4 rounded-full" style={{ background: t.primary }} />
+                      <div className="w-4 h-4 rounded-full" style={{ background: t.accent }} />
+                    </div>
+                    <div className="flex-1 text-left">
+                      <div className="text-sm font-semibold text-gray-800">{t.name}</div>
+                      <div className="text-xs text-gray-400">{t.label}</div>
+                    </div>
+                    {theme.id === t.id && <Check className="w-4 h-4 text-green-500 flex-shrink-0" />}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Mobile toggle */}

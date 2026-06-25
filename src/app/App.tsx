@@ -7,11 +7,9 @@ import { WhyUs } from "@/app/components/sections/WhyUs";
 import { Team } from "@/app/components/sections/Team";
 import { Projects } from "@/app/components/sections/Projects";
 import { Process } from "@/app/components/sections/Process";
-import { Testimonials } from "@/app/components/sections/Testimonials";
-import { FAQ } from "@/app/components/sections/FAQ";
+import { Clients } from "@/app/components/sections/Clients";
 import { Contact } from "@/app/components/sections/Contact";
 import { Footer } from "@/app/components/sections/Footer";
-import { ThemeSwitcher } from "@/app/components/ThemeSwitcher";
 
 function scrollTo(href: string) {
   const el = document.querySelector(href);
@@ -30,11 +28,9 @@ export default function App() {
         <Team />
         <Projects />
         <Process />
-        <Testimonials />
-        <FAQ />
+        <Clients />
         <Contact />
         <Footer scrollTo={scrollTo} />
-        <ThemeSwitcher />
       </div>
     </ThemeProvider>
   );

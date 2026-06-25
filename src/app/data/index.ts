@@ -1,5 +1,5 @@
 import {
-  Layers, Layers3, Search, Home, Building2, Factory, HardHat,
+  Layers, Layers3, Factory, HardHat,
   Briefcase, Ruler, Wrench, Award, TrendingUp, Shield, Clock, Users, Zap, FileSearch,
 } from "lucide-react";
 import type { NavLink, Stat, Service, WhyUsItem, Project, ProcessStep, Testimonial, FAQ, Theme } from "@/app/types";
@@ -34,8 +34,30 @@ import img_ombuilder_r4 from "@/imports/ombuilder4.png";
 import img_panchshil_r1 from "@/imports/PANnchshil1.png";
 import img_birajdar_r1 from "@/imports/birajdar1.png";
 import img_birajdar_r2 from "@/imports/birajdar2.png";
+import img_udaigiri_r1 from "@/imports/udaigiri_r1.jpg";
+import img_udaigiri_r2 from "@/imports/udaigiri_r2.jpg";
+import img_jspm_audit1 from "@/imports/jspm_audit1.jpg";
+import img_jspm_audit2 from "@/imports/jspm_audit2.jpg";
+import img_jspm_audit3 from "@/imports/jspm_audit3.jpg";
+
+// Client logos
+import img_client_jspm from "@/imports/jspm_logo.png";
+import img_client_pwd from "@/imports/pwd_logo.png";
+import img_client_railways from "@/imports/railways_logo.png";
+import img_client_topse from "@/imports/topse_logo.png";
+import img_client_mit from "@/imports/mit_logo.png";
+import img_client_kund from "@/imports/kund_logo.png";
 
 export { img_om_apartment, img_aerial, img_elite_township, img_residential, img_multistorey, img_structural, img_s14, img_s15, img_s17, img_s18, img_s19, img_jspm, img_jspm1, img_jspm2, img_mit_r1, img_mit_r2, img_mit_r3, img_mit_r4, img_mit_r5, img_mit_r6, img_mit_r7, img_rajmane_r1, img_rajmane_r2, img_ombuilder_r1, img_ombuilder_r2, img_ombuilder_r3, img_ombuilder_r4, img_panchshil_r1, img_birajdar_r1, img_birajdar_r2 };
+
+export const CLIENTS = [
+  { name: "JSPM Latur", logo: img_client_jspm },
+  { name: "Public Works Department, Maharashtra", logo: img_client_pwd },
+  { name: "Indian Railways", logo: img_client_railways },
+  { name: "Topse", logo: img_client_topse },
+  { name: "Maharashtra Institute of Technology", logo: img_client_mit },
+  { name: "KUND per square unit", logo: img_client_kund },
+];
 
 export const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "#home" },
@@ -55,10 +77,7 @@ export const STATS: Stat[] = [
 
 export const SERVICES: Service[] = [
   { icon: Layers, title: "RCC Structural Design", desc: "Complete reinforced cement concrete structural design for all building types, ensuring structural integrity and code compliance." },
-  { icon: Search, title: "Structural Analysis", desc: "Advanced analysis using STAAD Pro, ETABS, and manual methods to determine load paths and structural behavior." },
-  { icon: Home, title: "Residential Building Design", desc: "Custom structural design for bungalows, row houses, villas, and multi-storey residential apartments." },
-  { icon: Building2, title: "Commercial Building Design", desc: "Structural solutions for offices, malls, hotels, and commercial complexes with optimal column spacing." },
-  { icon: Factory, title: "Structural Design", desc: "Heavy-duty industrial sheds, warehouses, and pre-engineered building structural design." },
+  { icon: Factory, title: "Steel Structural Design", desc: "Heavy-duty industrial sheds, warehouses, and pre-engineered building steel structural design." },
   { icon: HardHat, title: "Construction Supervision", desc: "On-site quality supervision ensuring construction conforms to approved structural drawings and standards." },
   { icon: Briefcase, title: "Project Management", desc: "End-to-end project management including scheduling, resource planning, and progress monitoring (PMC Services)." },
   { icon: Ruler, title: "Site Inspection", desc: "Detailed structural site inspections, condition assessments, and structural audit reports for existing buildings." },
@@ -70,7 +89,7 @@ export const SERVICES: Service[] = [
 
 export const WHY_US: WhyUsItem[] = [
   { icon: Award, title: "Certified Engineers", desc: "Our team comprises licensed structural engineers with advanced degrees and professional certifications from leading institutions." },
-  { icon: TrendingUp, title: "Proven Expertise", desc: "Executing complex structural projects across residential, commercial, industrial, and infrastructure sectors." },
+  { icon: TrendingUp, title: "Proven Expertise", desc: "Executing complex structural projects across Residential, Commercial, Industrial, and Infrastructure sectors." },
   { icon: Shield, title: "Quality Assurance", desc: "Rigorous design checks, peer reviews, and adherence to IS codes, NBC, and international standards on every project." },
   { icon: Clock, title: "Timely Delivery", desc: "We respect project schedules. Systematic planning and monitoring ensure your structural designs are delivered on time." },
   { icon: Briefcase, title: "Cost-Effective Solutions", desc: "Optimized structural designs that reduce material usage while maintaining full safety — saving significant construction costs." },
@@ -106,13 +125,13 @@ export const PROJECTS: Project[] = [
 
   {
     image: img_jspm1,
-    images: [img_jspm1, img_jspm2],
+    images: [img_jspm1, img_jspm2, img_jspm_audit1, img_jspm_audit2, img_jspm_audit3],
     imagePosition: "center 20%",
-    title: "JSPM Institutes – G+7 College Building",
+    title: "Structural Audit – Institutional Building",
     location: "Latur, Maharashtra",
     category: "Commercial",
-    services: "Structural Design (Post-Tensioning), PMC Services, Structural Audit",
-    client: "JSPM Institutes Latur",
+    services: "Structural Auditing, Post-Tensioning Works, PMC Services",
+    client: "Confidential",
   },
   {
     image: img_mit_r1,
@@ -149,7 +168,15 @@ export const PROJECTS: Project[] = [
     services: "RCC Structural Design, Construction Supervision",
     client: "Tushar Birajdar",
   },
-
+  {
+    image: img_udaigiri_r1,
+    images: [img_udaigiri_r1, img_udaigiri_r2],
+    title: "Udaigiri Heights – Commercial Complex",
+    location: "Latur, Maharashtra",
+    category: "Commercial",
+    services: "RCC Structural Design, Construction Supervision",
+    client: "Mr. Kiranji Pensalwar",
+  },
 ];
 
 export const PROCESS_STEPS: ProcessStep[] = [

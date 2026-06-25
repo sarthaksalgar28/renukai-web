@@ -35,7 +35,7 @@ export function Projects() {
             Completed Projects
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto mb-8">
-            A showcase of structural consulting & designing projects delivered across residential, commercial, and infrastructure sectors.
+            A showcase of structural consulting & designing projects delivered across Residential, Commercial, and Infrastructure sectors.
           </p>
 
           {/* Filter buttons */}
