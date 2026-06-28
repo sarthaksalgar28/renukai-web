@@ -1,5 +1,5 @@
 import {
-  Layers3, Factory, HardHat,
+  Layers3, Factory, HardHat, Building2,
   Briefcase, Ruler, Wrench, Award, TrendingUp, Shield, Clock, Users, Zap, FileSearch,
 } from "lucide-react";
 import type { NavLink, Stat, Service, WhyUsItem, Project, ProcessStep, Testimonial, FAQ, Theme } from "@/app/types";
@@ -39,15 +39,6 @@ import img_udaigiri_r2 from "@/imports/udaigiri_r2.jpg";
 import img_jspm_audit1 from "@/imports/jspm_audit1.jpg";
 import img_jspm_audit2 from "@/imports/jspm_audit2.jpg";
 import img_jspm_audit3 from "@/imports/jspm_audit3.jpg";
-import img_elite_r1 from "@/imports/84elite1.png";
-import img_elite_r2 from "@/imports/84elite2.png";
-import img_elite_r3 from "@/imports/84elite3.png";
-import img_elite_r4 from "@/imports/84elite4.png";
-import img_elite_r5 from "@/imports/84elite5.png";
-import img_elite_r6 from "@/imports/84elite6.png";
-import img_elite_r7 from "@/imports/84elite7.png";
-import img_elite_r8 from "@/imports/84elite8.png";
-import img_elite_r9 from "@/imports/84elite9.png";
 
 // Client logos
 import img_client_jspm from "@/imports/jspm_logo.png";
@@ -85,6 +76,7 @@ export const STATS: Stat[] = [
 ];
 
 export const SERVICES: Service[] = [
+  { icon: Building2, title: "RCC Structural Design", desc: "Complete reinforced cement concrete structural design for residential, commercial, and institutional buildings — including slabs, beams, columns, footings, and staircases as per IS 456 and NBC standards." },
   { icon: Factory, title: "Steel Structural Design", desc: "Heavy-duty industrial sheds, warehouses, and pre-engineered building steel structural design." },
   { icon: HardHat, title: "Construction Supervision", desc: "On-site quality supervision ensuring construction conforms to approved structural drawings and standards." },
   { icon: Briefcase, title: "Project Management", desc: "End-to-end project management including scheduling, resource planning, and progress monitoring (PMC Services)." },
@@ -115,8 +107,7 @@ export const PROJECTS: Project[] = [
     client: "OM Builders",
   },
   {
-    image: img_elite_r6,
-    images: [img_elite_r6, img_elite_r1, img_elite_r2, img_elite_r3, img_elite_r4, img_elite_r5, img_elite_r7, img_elite_r8, img_elite_r9],
+    image: img_elite_township,
     title: "84 Elite – Township Development",
     location: "Latur, Maharashtra",
     category: "Residential",
@@ -134,21 +125,12 @@ export const PROJECTS: Project[] = [
 
   {
     image: img_jspm1,
-    images: [img_jspm1, img_jspm2],
+    images: [img_jspm1, img_jspm2, img_jspm_audit1, img_jspm_audit2, img_jspm_audit3],
     imagePosition: "center 20%",
-    title: "JSPM Institutes – G+7 College Building",
-    location: "Latur, Maharashtra",
-    category: "Commercial",
-    services: "Structural Design (Post-Tensioning), Structural Audit, Project Management Consultancy (Development of Master Plan, Extension of Buildings)",
-    client: "JSPM Institutes Latur",
-  },
-  {
-    image: img_jspm_audit1,
-    images: [img_jspm_audit1, img_jspm_audit2, img_jspm_audit3],
     title: "Structural Audit – Institutional Building",
     location: "Latur, Maharashtra",
     category: "Commercial",
-    services: "Structural Auditing",
+    services: "Structural Auditing, Post-Tensioning Works, PMC Services",
     client: "Confidential",
   },
   {
