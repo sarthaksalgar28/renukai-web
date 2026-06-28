@@ -124,12 +124,21 @@ export const PROJECTS: Project[] = [
 
   {
     image: img_jspm1,
-    images: [img_jspm1, img_jspm2, img_jspm_audit1, img_jspm_audit2, img_jspm_audit3],
+    images: [img_jspm1, img_jspm2],
     imagePosition: "center 20%",
+    title: "JSPM Institutes – G+7 College Building",
+    location: "Latur, Maharashtra",
+    category: "Commercial",
+    services: "Structural Design (Post-Tensioning), PMC Services, Structural Audit",
+    client: "JSPM Institutes Latur",
+  },
+  {
+    image: img_jspm_audit1,
+    images: [img_jspm_audit1, img_jspm_audit2, img_jspm_audit3],
     title: "Structural Audit – Institutional Building",
     location: "Latur, Maharashtra",
     category: "Commercial",
-    services: "Structural Auditing, Post-Tensioning Works, PMC Services",
+    services: "Structural Auditing",
     client: "Confidential",
   },
   {
