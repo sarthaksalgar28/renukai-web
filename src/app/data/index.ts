@@ -139,7 +139,7 @@ export const PROJECTS: Project[] = [
     title: "JSPM Institutes – G+7 College Building",
     location: "Latur, Maharashtra",
     category: "Commercial",
-    services: "Structural Design (Post-Tensioning), PMC Services, Structural Audit",
+    services: "Structural Design (Post-Tensioning), Structural Audit, Project Management Consultancy (Development of Master Plan, Extension of Buildings)",
     client: "JSPM Institutes Latur",
   },
   {
