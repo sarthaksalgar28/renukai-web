@@ -39,6 +39,15 @@ import img_udaigiri_r2 from "@/imports/udaigiri_r2.jpg";
 import img_jspm_audit1 from "@/imports/jspm_audit1.jpg";
 import img_jspm_audit2 from "@/imports/jspm_audit2.jpg";
 import img_jspm_audit3 from "@/imports/jspm_audit3.jpg";
+import img_elite_r1 from "@/imports/84elite1.png";
+import img_elite_r2 from "@/imports/84elite2.png";
+import img_elite_r3 from "@/imports/84elite3.png";
+import img_elite_r4 from "@/imports/84elite4.png";
+import img_elite_r5 from "@/imports/84elite5.png";
+import img_elite_r6 from "@/imports/84elite6.png";
+import img_elite_r7 from "@/imports/84elite7.png";
+import img_elite_r8 from "@/imports/84elite8.png";
+import img_elite_r9 from "@/imports/84elite9.png";
 
 // Client logos
 import img_client_jspm from "@/imports/jspm_logo.png";
@@ -106,7 +115,8 @@ export const PROJECTS: Project[] = [
     client: "OM Builders",
   },
   {
-    image: img_elite_township,
+    image: img_elite_r1,
+    images: [img_elite_r1, img_elite_r2, img_elite_r3, img_elite_r4, img_elite_r5, img_elite_r6, img_elite_r7, img_elite_r8, img_elite_r9],
     title: "84 Elite – Township Development",
     location: "Latur, Maharashtra",
     category: "Residential",
