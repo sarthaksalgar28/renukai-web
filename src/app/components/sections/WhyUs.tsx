@@ -1,8 +1,11 @@
 import { useTheme } from "@/app/contexts/ThemeContext";
+import { useLanguage } from "@/app/contexts/LanguageContext";
 import { WHY_US } from "@/app/data";
 
 export function WhyUs() {
   const { theme } = useTheme();
+  const { c } = useLanguage();
+  const items = WHY_US.map((w, i) => ({ icon: w.icon, ...c.whyUs.items[i] }));
 
   return (
     <section className="py-24" style={{ background: theme.cardBg }}>
@@ -14,24 +17,19 @@ export function WhyUs() {
               className="text-xs font-bold uppercase tracking-widest mb-3"
               style={{ color: theme.accent, fontFamily: "'Poppins', sans-serif" }}
             >
-              Why Us
+              {c.whyUs.eyebrow}
             </div>
             <h2
               className="text-4xl font-bold mb-6 leading-tight"
               style={{ color: theme.primary, fontFamily: "'Poppins', sans-serif" }}
             >
-              Why Choose RCC<br />Structural Consulting?
+              {c.whyUs.titleLine1}<br />{c.whyUs.titleLine2}
             </h2>
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              Clients across Maharashtra trust us because we combine deep technical expertise with a genuine commitment to their project's success. Here is what sets us apart:
+              {c.whyUs.subtitle}
             </p>
             <div className="grid grid-cols-2 gap-4">
-              {[
-                { val: "IS 456", lbl: "Code Compliance" },
-                { val: "ETABS", lbl: "Advanced Analysis" },
-                { val: "24/7", lbl: "Project Support" },
-                { val: "Zero", lbl: "Structural Failures" },
-              ].map((item) => (
+              {c.whyUs.stats.map((item) => (
                 <div
                   key={item.lbl}
                   className="p-4 rounded-xl text-center transition-all hover:shadow-md"
@@ -54,7 +52,7 @@ export function WhyUs() {
 
           {/* Right grid */}
           <div className="grid sm:grid-cols-2 gap-5">
-            {WHY_US.map((item, i) => (
+            {items.map((item, i) => (
               <div
                 key={i}
                 className="p-5 rounded-2xl border hover:shadow-lg transition-all group"

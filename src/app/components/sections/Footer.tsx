@@ -1,6 +1,7 @@
 import { Phone, Mail, MapPin, ChevronRight, Instagram, Linkedin } from "lucide-react";
 import { useTheme } from "@/app/contexts/ThemeContext";
-import { NAV_LINKS, SERVICES } from "@/app/data";
+import { useLanguage } from "@/app/contexts/LanguageContext";
+import { NAV_LINKS } from "@/app/data";
 import rccLogoImg from "@/imports/rcc-logo.png";
 
 interface FooterProps {
@@ -9,6 +10,9 @@ interface FooterProps {
 
 export function Footer({ scrollTo }: FooterProps) {
   const { theme } = useTheme();
+  const { c } = useLanguage();
+  const navItems = NAV_LINKS.map((l, i) => ({ href: l.href, label: c.nav[i] }));
+  const serviceTitles = c.services.items.slice(0, 7).map((s) => s.title);
 
   return (
     <footer style={{ background: theme.footerBg }}>
@@ -26,7 +30,7 @@ export function Footer({ scrollTo }: FooterProps) {
               <img src={rccLogoImg} alt="RCC Logo" className="h-20 w-auto object-contain" style={{ filter: "brightness(0) invert(1)" }} />
             </div>
             <p className="text-sm leading-relaxed mb-5 text-white/50">
-              Professional structural consulting & designing firm serving clients across Maharashtra with integrity and engineering excellence.
+              {c.footer.brandDesc}
             </p>
             <div className="flex gap-3">
               {[
@@ -51,10 +55,10 @@ export function Footer({ scrollTo }: FooterProps) {
           {/* Quick links */}
           <div>
             <h4 className="text-sm font-bold mb-5 text-white" style={{ fontFamily: "'Poppins', sans-serif" }}>
-              Quick Links
+              {c.footer.quickLinks}
             </h4>
             <ul className="space-y-3">
-              {NAV_LINKS.map((l) => (
+              {navItems.map((l) => (
                 <li key={l.href}>
                   <button
                     onClick={() => scrollTo(l.href)}
@@ -71,13 +75,13 @@ export function Footer({ scrollTo }: FooterProps) {
           {/* Services */}
           <div>
             <h4 className="text-sm font-bold mb-5 text-white" style={{ fontFamily: "'Poppins', sans-serif" }}>
-              Services
+              {c.footer.services}
             </h4>
             <ul className="space-y-3">
-              {SERVICES.slice(0, 7).map((s, i) => (
+              {serviceTitles.map((title, i) => (
                 <li key={i} className="text-sm flex items-center gap-2 text-white/50">
                   <ChevronRight className="w-3.5 h-3.5 flex-shrink-0" style={{ color: theme.accent }} />
-                  {s.title}
+                  {title}
                 </li>
               ))}
             </ul>
@@ -86,13 +90,13 @@ export function Footer({ scrollTo }: FooterProps) {
           {/* Contact */}
           <div>
             <h4 className="text-sm font-bold mb-5 text-white" style={{ fontFamily: "'Poppins', sans-serif" }}>
-              Contact Details
+              {c.footer.contactDetails}
             </h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: theme.accent }} />
                 <span className="text-sm text-white/50 leading-relaxed">
-                  Latur, Maharashtra,<br />India – 413512
+                  {c.footer.address1}<br />{c.footer.address2}
                 </span>
               </li>
               <li className="flex items-center gap-3">
@@ -116,8 +120,8 @@ export function Footer({ scrollTo }: FooterProps) {
                 border: `1px solid rgba(${theme.accentRgb},0.2)`,
               }}
             >
-              <span style={{ color: theme.accent }} className="font-semibold">Office Hours:</span><br />
-              Monday – Saturday: 9:00 AM – 7:00 PM
+              <span style={{ color: theme.accent }} className="font-semibold">{c.footer.officeHoursLabel}</span><br />
+              {c.footer.officeHours}
             </div>
           </div>
         </div>
@@ -127,10 +131,10 @@ export function Footer({ scrollTo }: FooterProps) {
       <div className="border-t border-white/[0.06]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-white/35">
-            © 2026 Renukai Consultants &amp; Constructions. All rights reserved.
+            {c.footer.copyright}
           </p>
           <p className="text-xs text-white/25">
-            Structural Consulting & Designing · RCC Design · Construction Consulting · Maharashtra
+            {c.footer.tagline}
           </p>
         </div>
       </div>

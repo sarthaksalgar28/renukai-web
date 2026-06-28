@@ -1,6 +1,7 @@
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import { useTheme } from "@/app/contexts/ThemeContext";
+import { useLanguage } from "@/app/contexts/LanguageContext";
 import { STATS, img_mit_r7 } from "@/app/data";
 import rccLogoImg from "@/imports/rcc-logo.png";
 
@@ -10,6 +11,8 @@ interface HeroProps {
 
 export function Hero({ scrollTo }: HeroProps) {
   const { theme } = useTheme();
+  const { c } = useLanguage();
+  const stats = STATS.map((s, i) => ({ value: s.value, label: c.stats[i] }));
 
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden" style={{ background: theme.heroBg }}>
@@ -58,7 +61,7 @@ export function Hero({ scrollTo }: HeroProps) {
               className="text-xs font-semibold uppercase tracking-widest"
               style={{ color: theme.accent, fontFamily: "'Poppins', sans-serif" }}
             >
-              Renukai Consultants &amp; Constructions
+              {c.hero.badge}
             </span>
           </div>
 
@@ -67,12 +70,12 @@ export function Hero({ scrollTo }: HeroProps) {
             className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-6"
             style={{ fontFamily: "'Poppins', sans-serif" }}
           >
-            Building Strong Foundations for a{" "}
-            <span style={{ color: theme.accent }}>Better Tomorrow</span>
+            {c.hero.headlinePre}{" "}
+            <span style={{ color: theme.accent }}>{c.hero.headlineAccent}</span>
           </h1>
 
           <p className="text-lg text-white/70 mb-10 leading-relaxed max-w-2xl" style={{ fontFamily: "'Inter', sans-serif" }}>
-            Professional Structural Consulting & Designing, RCC Design, Construction Consulting, Project Management, and Engineering Solutions for Residential, Commercial, and Industrial Projects.
+            {c.hero.subtitle}
           </p>
 
           {/* CTAs */}
@@ -86,7 +89,7 @@ export function Hero({ scrollTo }: HeroProps) {
                 boxShadow: `0 8px 32px rgba(${theme.accentRgb},0.3)`,
               }}
             >
-              Request Consultation
+              {c.hero.ctaPrimary}
               <ArrowRight className="w-4 h-4" />
             </button>
             <button
@@ -94,14 +97,14 @@ export function Hero({ scrollTo }: HeroProps) {
               className="flex items-center gap-2 px-8 py-4 rounded-xl text-base font-semibold text-white border border-white/30 hover:bg-white/10 transition-all"
               style={{ fontFamily: "'Poppins', sans-serif" }}
             >
-              View Projects
+              {c.hero.ctaSecondary}
               <ChevronRight className="w-4 h-4" />
             </button>
           </div>
 
           {/* Stats */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {STATS.map((s) => (
+            {stats.map((s) => (
               <div
                 key={s.label}
                 className="px-5 py-4 rounded-2xl border transition-all hover:scale-105"
@@ -126,7 +129,7 @@ export function Hero({ scrollTo }: HeroProps) {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-40 animate-bounce">
-        <div className="text-white text-xs" style={{ fontFamily: "'Poppins', sans-serif" }}>Scroll</div>
+        <div className="text-white text-xs" style={{ fontFamily: "'Poppins', sans-serif" }}>{c.hero.scroll}</div>
         <div className="w-px h-8 bg-white/40" />
       </div>
 

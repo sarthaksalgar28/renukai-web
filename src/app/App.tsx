@@ -1,4 +1,6 @@
 ﻿import { ThemeProvider } from "@/app/contexts/ThemeContext";
+import { LanguageProvider, useLanguage } from "@/app/contexts/LanguageContext";
+import { LanguageGate } from "@/app/components/LanguageGate";
 import { Navbar } from "@/app/components/sections/Navbar";
 import { Hero } from "@/app/components/sections/Hero";
 import { About } from "@/app/components/sections/About";
@@ -19,19 +21,34 @@ function scrollTo(href: string) {
 export default function App() {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-background text-foreground" style={{ fontFamily: "'Inter', sans-serif" }}>
-        <Navbar scrollTo={scrollTo} />
-        <Hero scrollTo={scrollTo} />
-        <About />
-        <Services />
-        <WhyUs />
-        <Team />
-        <Projects />
-        <Process />
-        <Clients />
-        <Contact />
-        <Footer scrollTo={scrollTo} />
-      </div>
+      <LanguageProvider>
+        <SiteShell />
+      </LanguageProvider>
     </ThemeProvider>
+  );
+}
+
+function SiteShell() {
+  const { hasChosen } = useLanguage();
+
+  // Block the site behind the language gate until a preference is stored.
+  if (!hasChosen) {
+    return <LanguageGate />;
+  }
+
+  return (
+    <div className="min-h-screen bg-background text-foreground" style={{ fontFamily: "'Inter', sans-serif" }}>
+      <Navbar scrollTo={scrollTo} />
+      <Hero scrollTo={scrollTo} />
+      <About />
+      <Services />
+      <WhyUs />
+      <Team />
+      <Projects />
+      <Process />
+      <Clients />
+      <Contact />
+      <Footer scrollTo={scrollTo} />
+    </div>
   );
 }

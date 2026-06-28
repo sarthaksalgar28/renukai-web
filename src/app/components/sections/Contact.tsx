@@ -2,6 +2,7 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { Phone, Mail, MapPin, CheckCircle2, MessageCircle, Instagram } from "lucide-react";
 import { useTheme } from "@/app/contexts/ThemeContext";
+import { useLanguage } from "@/app/contexts/LanguageContext";
 
 const EMAILJS_SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID  as string;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
@@ -9,6 +10,8 @@ const EMAILJS_PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY  as string;
 
 export function Contact() {
   const { theme } = useTheme();
+  const { c } = useLanguage();
+  const t = c.contact;
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", service: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
@@ -35,7 +38,7 @@ export function Contact() {
       setSubmitted(true);
       setFormData({ name: "", email: "", phone: "", service: "", message: "" });
     } catch {
-      setError("Failed to send message. Please try again or contact us directly.");
+      setError(t.errorMsg);
     } finally {
       setSending(false);
     }
@@ -54,16 +57,16 @@ export function Contact() {
             className="text-xs font-bold uppercase tracking-widest mb-3"
             style={{ color: theme.accent, fontFamily: "'Poppins', sans-serif" }}
           >
-            Get In Touch
+            {t.eyebrow}
           </div>
           <h2
             className="text-4xl font-bold mb-4"
             style={{ color: theme.primary, fontFamily: "'Poppins', sans-serif" }}
           >
-            Contact Us
+            {t.title}
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Ready to start your structural consulting project? Reach out for a free initial consultation.
+            {t.subtitle}
           </p>
         </div>
 
@@ -85,17 +88,17 @@ export function Contact() {
                   className="text-xl font-bold mb-2"
                   style={{ color: theme.primary, fontFamily: "'Poppins', sans-serif" }}
                 >
-                  Message Received!
+                  {t.successTitle}
                 </h3>
                 <p className="text-muted-foreground text-sm">
-                  Thank you for reaching out. Our team will contact you within 24 hours.
+                  {t.successText}
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
                   className="mt-6 px-6 py-3 rounded-xl text-sm font-semibold text-white transition-all hover:opacity-90"
                   style={{ background: theme.primary, fontFamily: "'Poppins', sans-serif" }}
                 >
-                  Send Another Message
+                  {t.sendAnother}
                 </button>
               </div>
             ) : (
@@ -104,12 +107,12 @@ export function Contact() {
                   className="text-lg font-bold mb-6"
                   style={{ color: theme.primary, fontFamily: "'Poppins', sans-serif" }}
                 >
-                  Request a Consultation
+                  {t.formHeading}
                 </h3>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-semibold mb-1.5" style={{ color: theme.primary, fontFamily: "'Poppins', sans-serif" }}>
-                      Full Name *
+                      {t.fullName}
                     </label>
                     <input
                       required
@@ -118,12 +121,12 @@ export function Contact() {
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl border text-sm outline-none focus:ring-2 transition-all"
                       style={inputStyle}
-                      placeholder="Your full name"
+                      placeholder={t.fullNamePlaceholder}
                     />
                   </div>
                   <div>
                     <label className="block text-xs font-semibold mb-1.5" style={{ color: theme.primary, fontFamily: "'Poppins', sans-serif" }}>
-                      Email Address *
+                      {t.email}
                     </label>
                     <input
                       required
@@ -132,14 +135,14 @@ export function Contact() {
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl border text-sm outline-none focus:ring-2 transition-all"
                       style={inputStyle}
-                      placeholder="your@email.com"
+                      placeholder={t.emailPlaceholder}
                     />
                   </div>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-semibold mb-1.5" style={{ color: theme.primary, fontFamily: "'Poppins', sans-serif" }}>
-                      Phone Number
+                      {t.phone}
                     </label>
                     <input
                       type="tel"
@@ -147,12 +150,12 @@ export function Contact() {
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl border text-sm outline-none focus:ring-2 transition-all"
                       style={inputStyle}
-                      placeholder="+91 98765 43210"
+                      placeholder={t.phonePlaceholder}
                     />
                   </div>
                   <div>
                     <label className="block text-xs font-semibold mb-1.5" style={{ color: theme.primary, fontFamily: "'Poppins', sans-serif" }}>
-                      Service Required
+                      {t.serviceRequired}
                     </label>
                     <select
                       value={formData.service}
@@ -160,19 +163,16 @@ export function Contact() {
                       className="w-full px-4 py-3 rounded-xl border text-sm outline-none focus:ring-2 transition-all"
                       style={inputStyle}
                     >
-                      <option value="">Select a service</option>
-                      <option>RCC Structural Design</option>
-                      <option>Steel Structural Design</option>
-                      <option>Project Management</option>
-                      <option>Structural Audit</option>
-                      <option>Retrofitting</option>
-                      <option>Other</option>
+                      <option value="">{t.selectService}</option>
+                      {t.serviceOptions.map((opt) => (
+                        <option key={opt}>{opt}</option>
+                      ))}
                     </select>
                   </div>
                 </div>
                 <div>
                   <label className="block text-xs font-semibold mb-1.5" style={{ color: theme.primary, fontFamily: "'Poppins', sans-serif" }}>
-                    Project Description
+                    {t.projectDescription}
                   </label>
                   <textarea
                     rows={4}
@@ -180,7 +180,7 @@ export function Contact() {
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl border text-sm outline-none focus:ring-2 transition-all resize-none"
                     style={inputStyle}
-                    placeholder="Briefly describe your project, location, and requirements..."
+                    placeholder={t.projectPlaceholder}
                   />
                 </div>
                 {error && (
@@ -195,7 +195,7 @@ export function Contact() {
                     fontFamily: "'Poppins', sans-serif",
                   }}
                 >
-                  {sending ? "Sending…" : "Send Message"}
+                  {sending ? t.sending : t.send}
                 </button>
               </form>
             )}
@@ -204,10 +204,10 @@ export function Contact() {
           {/* Contact info */}
           <div className="space-y-6">
             {[
-              { icon: Phone,     label: "Phone / WhatsApp", value: "+91 99604 04647",          sub: "Mon–Sat, 9am–7pm",          href: "tel:+919960404647",                                    external: false },
-              { icon: Mail,      label: "Email",            value: "renukaiconsultants@gmail.com",   sub: "We respond within 24 hours", href: "mailto:renukaiconsultants@gmail.com",                         external: false },
-              { icon: Instagram, label: "Instagram",        value: "@rcc_4647",                sub: "Follow us for project updates", href: "https://www.instagram.com/rcc_4647", external: true  },
-              { icon: MapPin,    label: "Office Address",   value: "Renukai Consultants & Constructions", sub: "Latur, Maharashtra, India – 413512", href: "https://maps.app.goo.gl/c6DA914CiZ4UZavW9",          external: true  },
+              { icon: Phone,     value: "+91 99604 04647",          href: "tel:+919960404647",                                    external: false },
+              { icon: Mail,      value: "renukaiconsultants@gmail.com",   href: "mailto:renukaiconsultants@gmail.com",                         external: false },
+              { icon: Instagram, value: "@rcc_4647",                href: "https://www.instagram.com/rcc_4647", external: true  },
+              { icon: MapPin,    value: "Renukai Consultants & Constructions", href: "https://maps.app.goo.gl/c6DA914CiZ4UZavW9",          external: true  },
             ].map((item, i) => (
               <a
                 key={i}
@@ -224,11 +224,11 @@ export function Contact() {
                   <item.icon className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <div className="text-xs font-semibold text-muted-foreground mb-0.5">{item.label}</div>
+                  <div className="text-xs font-semibold text-muted-foreground mb-0.5">{t.info[i].label}</div>
                   <div className="font-semibold text-sm" style={{ color: theme.primary, fontFamily: "'Poppins', sans-serif" }}>
                     {item.value}
                   </div>
-                  <div className="text-xs text-muted-foreground mt-0.5">{item.sub}</div>
+                  <div className="text-xs text-muted-foreground mt-0.5">{t.info[i].sub}</div>
                 </div>
               </a>
             ))}
@@ -245,7 +245,7 @@ export function Contact() {
               }}
             >
               <MessageCircle className="w-5 h-5" />
-              Chat on WhatsApp
+              {t.whatsapp}
             </a>
 
             {/* Google Maps embed */}

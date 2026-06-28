@@ -1,8 +1,11 @@
 import { useTheme } from "@/app/contexts/ThemeContext";
+import { useLanguage } from "@/app/contexts/LanguageContext";
 import { PROCESS_STEPS } from "@/app/data";
 
 export function Process() {
   const { theme } = useTheme();
+  const { c } = useLanguage();
+  const steps = PROCESS_STEPS.map((s, i) => ({ num: s.num, ...c.process.steps[i] }));
 
   return (
     <section id="process" className="py-24" style={{ background: theme.primary }}>
@@ -12,16 +15,16 @@ export function Process() {
             className="text-xs font-bold uppercase tracking-widest mb-3"
             style={{ color: theme.accent, fontFamily: "'Poppins', sans-serif" }}
           >
-            How We Work
+            {c.process.eyebrow}
           </div>
           <h2
             className="text-4xl font-bold mb-4 text-white"
             style={{ fontFamily: "'Poppins', sans-serif" }}
           >
-            Our Engineering Process
+            {c.process.title}
           </h2>
           <p className="max-w-xl mx-auto text-white/60">
-            A systematic 7-step process that ensures every project is delivered to the highest technical standards, on time and within budget.
+            {c.process.subtitle}
           </p>
         </div>
 
@@ -32,7 +35,7 @@ export function Process() {
             style={{ background: `linear-gradient(90deg, transparent, rgba(${theme.accentRgb},0.4), transparent)` }}
           />
           <div className="grid grid-cols-7 gap-4">
-            {PROCESS_STEPS.map((step, i) => (
+            {steps.map((step, i) => (
               <div key={i} className="flex flex-col items-center text-center group">
                 <div
                   className="relative w-16 h-16 rounded-full flex items-center justify-center mb-5 flex-shrink-0 z-10 transition-all group-hover:scale-110"
@@ -56,7 +59,7 @@ export function Process() {
 
         {/* Mobile vertical timeline */}
         <div className="lg:hidden space-y-6">
-          {PROCESS_STEPS.map((step, i) => (
+          {steps.map((step, i) => (
             <div key={i} className="flex gap-5">
               <div className="flex flex-col items-center">
                 <div

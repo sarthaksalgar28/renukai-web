@@ -1,10 +1,13 @@
 import { CheckCircle2 } from "lucide-react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import { useTheme } from "@/app/contexts/ThemeContext";
+import { useLanguage } from "@/app/contexts/LanguageContext";
 import { img_aerial, img_structural } from "@/app/data";
 
 export function About() {
   const { theme } = useTheme();
+  const { c } = useLanguage();
+  const a = c.about;
 
   return (
     <section id="about" className="py-24" style={{ background: theme.cardBg }}>
@@ -25,7 +28,7 @@ export function About() {
               style={{ background: theme.primary }}
             >
               <div className="text-3xl font-bold mb-1" style={{ color: theme.accent, fontFamily: "'Poppins', sans-serif" }}>RCC</div>
-              <div className="text-white text-xs font-medium">Trusted<br />Consultants</div>
+              <div className="text-white text-xs font-medium">{a.trustedTop}<br />{a.trustedBottom}</div>
             </div>
             {/* Structural wireframe thumbnail */}
             <div
@@ -46,28 +49,24 @@ export function About() {
               className="text-xs font-bold uppercase tracking-widest mb-3"
               style={{ color: theme.accent, fontFamily: "'Poppins', sans-serif" }}
             >
-              About Renukai Consultants &amp; Constructions
+              {a.eyebrow}
             </div>
             <h2
               className="text-4xl font-bold mb-6 leading-tight"
               style={{ color: theme.primary, fontFamily: "'Poppins', sans-serif" }}
             >
-              Engineering Excellence,<br />Built on Trust
+              {a.titleLine1}<br />{a.titleLine2}
             </h2>
             <p className="text-muted-foreground mb-5 leading-relaxed">
-              Renukai Consultants &amp; Constructions (RCC) is a leading structural consulting &amp; designing firm. We specialize in the complete structural lifecycle — from concept design and analysis through construction supervision and quality certification.
+              {a.p1}
             </p>
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              Our firm has successfully delivered over 150 projects spanning Residential Apartments, Commercial Complexes, Industrial Structures, and critical infrastructure including railway station buildings across Maharashtra and beyond.
+              {a.p2}
             </p>
 
             {/* Mission / Vision / Values */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-              {[
-                { label: "Mission", text: "Delivering safe, efficient, and economical structural solutions that stand the test of time." },
-                { label: "Vision", text: "To be Maharashtra's most trusted structural consulting & designing practice, known for precision and integrity." },
-                { label: "Values", text: "Safety First · Technical Excellence · Client Commitment · Timely Delivery" },
-              ].map((item) => (
+              {a.blocks.map((item) => (
                 <div
                   key={item.label}
                   className="p-4 rounded-xl border"
@@ -87,13 +86,13 @@ export function About() {
             {/* Achievement highlights */}
             <div className="flex flex-wrap gap-4">
               {[
-                { val: "170+", lbl: "Projects" },
-                { val: "20+", lbl: "Cities" },
-              ].map((a) => (
-                <div key={a.lbl} className="flex items-center gap-2">
+                { val: "170+", lbl: a.projectsLabel },
+                { val: "20+", lbl: a.citiesLabel },
+              ].map((item) => (
+                <div key={item.lbl} className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 flex-shrink-0" style={{ color: theme.accent }} />
                   <span className="text-sm font-semibold" style={{ color: theme.primary, fontFamily: "'Poppins', sans-serif" }}>
-                    {a.val} {a.lbl}
+                    {item.val} {item.lbl}
                   </span>
                 </div>
               ))}

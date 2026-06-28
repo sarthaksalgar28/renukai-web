@@ -1,4 +1,5 @@
 import { Phone, Mail, Award, Linkedin, GraduationCap, Building2, Home, Landmark, Layers } from "lucide-react";import { useTheme } from "@/app/contexts/ThemeContext";
+import { useLanguage } from "@/app/contexts/LanguageContext";
 import kedarImg from "@/imports/kedar.jpg";
 
 interface TeamMember {
@@ -29,6 +30,8 @@ const TEAM: TeamMember[] = [
 
 export function Team() {
   const { theme } = useTheme();
+  const { c } = useLanguage();
+  const t = c.team;
   const principal = TEAM[0];
 
   return (
@@ -41,13 +44,13 @@ export function Team() {
             className="text-xs font-bold uppercase tracking-widest mb-3"
             style={{ color: theme.accent, fontFamily: "'Poppins', sans-serif" }}
           >
-            The People Behind the Work
+            {t.eyebrow}
           </div>
           <h2
             className="text-4xl font-bold"
             style={{ color: theme.primary, fontFamily: "'Poppins', sans-serif" }}
           >
-            Meet the Principal Consultant
+            {t.title}
           </h2>
         </div>
 
@@ -96,7 +99,7 @@ export function Team() {
               <div className="flex items-center gap-2 mb-5">
                 <Award className="w-4 h-4 flex-shrink-0" style={{ color: theme.accent }} />
                 <span className="font-semibold text-sm" style={{ color: theme.accent, fontFamily: "'Poppins', sans-serif" }}>
-                  {principal.role} – {principal.dept}
+                  {t.role} – {t.dept}
                 </span>
               </div>
 
@@ -108,24 +111,24 @@ export function Team() {
                 {principal.note && (
                   <div className="flex items-start gap-3 p-4 rounded-2xl" style={{ background: `rgba(${theme.accentRgb},0.08)` }}>
                     <Building2 className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: theme.accent }} />
-                    <p className="text-white/80 text-sm leading-relaxed">{principal.note}</p>
+                    <p className="text-white/80 text-sm leading-relaxed">{t.highrise}</p>
                   </div>
                 )}
                 <div className="flex items-start gap-3 p-4 rounded-2xl" style={{ background: "rgba(255,255,255,0.05)" }}>
                   <GraduationCap className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: theme.accent }} />
-                  <p className="text-white/60 text-sm leading-relaxed">Bachelor of Engineering · Master of Engineering · BJS-MCJ</p>
+                  <p className="text-white/60 text-sm leading-relaxed">{t.education}</p>
                 </div>
                 <div className="flex items-start gap-3 p-4 rounded-2xl" style={{ background: `rgba(${theme.accentRgb},0.08)` }}>
                   <Home className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: theme.accent }} />
-                  <p className="text-white/80 text-sm leading-relaxed">Extensive experience in residential projects — bungalows, row houses, and multi-storey apartments across Maharashtra.</p>
+                  <p className="text-white/80 text-sm leading-relaxed">{t.residential}</p>
                 </div>
                 <div className="flex items-start gap-3 p-4 rounded-2xl" style={{ background: "rgba(255,255,255,0.05)" }}>
                   <Landmark className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: theme.accent }} />
-                  <p className="text-white/60 text-sm leading-relaxed">Delivered structural designs for commercial complexes, IT parks, hospitals, and public infrastructure including railway buildings.</p>
+                  <p className="text-white/60 text-sm leading-relaxed">{t.commercial}</p>
                 </div>
                 <div className="flex items-start gap-3 p-4 rounded-2xl col-span-full" style={{ background: `rgba(${theme.accentRgb},0.06)` }}>
                   <Layers className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: theme.accent }} />
-                  <p className="text-white/70 text-sm leading-relaxed">Proficient in steel structure design — pre-engineered buildings (PEB), industrial sheds, mezzanine floors, steel trusses, and composite steel-concrete systems using STAAD Pro and ETABS.</p>
+                  <p className="text-white/70 text-sm leading-relaxed">{t.steel}</p>
                 </div>
               </div>
 
@@ -146,7 +149,7 @@ export function Team() {
                 {principal.linkedin && (
                   <a href={principal.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium transition-all hover:scale-105" style={{ background: "rgba(10,102,194,0.25)", color: "#5BA4F5" }}>
                     <Linkedin className="w-4 h-4" />
-                    LinkedIn
+                    {t.linkedin}
                   </a>
                 )}
               </div>

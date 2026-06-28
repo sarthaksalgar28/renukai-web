@@ -2,20 +2,23 @@ import { useState } from "react";
 import { MapPin, Images } from "lucide-react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import { useTheme } from "@/app/contexts/ThemeContext";
+import { useLanguage } from "@/app/contexts/LanguageContext";
 import { PROJECTS, CATEGORY_COLORS } from "@/app/data";
 import { ProjectGallery } from "@/app/components/sections/ProjectGallery";
 import type { Project } from "@/app/types";
 
-const FILTERS = ["All", "Residential", "Commercial", "Industrial"];
-
 export function Projects() {
   const { theme } = useTheme();
+  const { c } = useLanguage();
   const [activeFilter, setActiveFilter] = useState("All");
   const [galleryProject, setGalleryProject] = useState<Project | null>(null);
 
+  // Merge structural project data (image/category) with translated text.
+  const projects = PROJECTS.map((p, i) => ({ ...p, ...c.projects.items[i] }));
+
   const filtered = activeFilter === "All"
-    ? PROJECTS
-    : PROJECTS.filter((p) => p.category === activeFilter);
+    ? projects
+    : projects.filter((p) => p.category === activeFilter);
 
   return (
     <section id="projects" className="py-24" style={{ background: theme.sectionBg }}>
@@ -26,34 +29,34 @@ export function Projects() {
             className="text-xs font-bold uppercase tracking-widest mb-3"
             style={{ color: theme.accent, fontFamily: "'Poppins', sans-serif" }}
           >
-            Our Portfolio
+            {c.projects.eyebrow}
           </div>
           <h2
             className="text-4xl font-bold mb-4"
             style={{ color: theme.primary, fontFamily: "'Poppins', sans-serif" }}
           >
-            Completed Projects
+            {c.projects.title}
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto mb-8">
-            A showcase of structural consulting & designing projects delivered across Residential, Commercial, and Infrastructure sectors.
+            {c.projects.subtitle}
           </p>
 
           {/* Filter buttons */}
           <div className="flex flex-wrap justify-center gap-3">
-            {FILTERS.map((cat) => (
+            {c.projects.filters.map((cat) => (
               <button
-                key={cat}
-                onClick={() => setActiveFilter(cat)}
+                key={cat.key}
+                onClick={() => setActiveFilter(cat.key)}
                 className="px-5 py-2 rounded-full text-sm font-medium transition-all"
                 style={{
                   fontFamily: "'Poppins', sans-serif",
-                  background: activeFilter === cat ? theme.primary : "white",
-                  color: activeFilter === cat ? "white" : "#6B7280",
-                  border: `1px solid ${activeFilter === cat ? theme.primary : "rgba(0,0,0,0.1)"}`,
-                  boxShadow: activeFilter === cat ? `0 4px 12px rgba(${theme.primaryRgb},0.25)` : "none",
+                  background: activeFilter === cat.key ? theme.primary : "white",
+                  color: activeFilter === cat.key ? "white" : "#6B7280",
+                  border: `1px solid ${activeFilter === cat.key ? theme.primary : "rgba(0,0,0,0.1)"}`,
+                  boxShadow: activeFilter === cat.key ? `0 4px 12px rgba(${theme.primaryRgb},0.25)` : "none",
                 }}
               >
-                {cat}
+                {cat.label}
               </button>
             ))}
           </div>
@@ -90,7 +93,7 @@ export function Projects() {
                   {/* Category tag */}
                   <div className="absolute top-4 left-4">
                     <span className={`px-3 py-1 rounded-full text-xs font-semibold ${CATEGORY_COLORS[project.category] ?? "bg-gray-100 text-gray-700"}`}>
-                      {project.category}
+                      {c.projects.categories[project.category] ?? project.category}
                     </span>
                   </div>
                   {/* Photo count badge */}

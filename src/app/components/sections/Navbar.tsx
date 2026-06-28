@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { Phone, Menu, X, ChevronRight, Palette, Check } from "lucide-react";
 import { useTheme } from "@/app/contexts/ThemeContext";
+import { useLanguage } from "@/app/contexts/LanguageContext";
 import { NAV_LINKS } from "@/app/data";
+import type { Language } from "@/app/data/i18n";
 import rccLogoImg from "@/imports/rcc-logo.png";
 
 interface NavbarProps {
@@ -10,6 +12,7 @@ interface NavbarProps {
 
 export function Navbar({ scrollTo }: NavbarProps) {
   const { theme, themes, setThemeId } = useTheme();
+  const { lang, setLang, c } = useLanguage();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [themeOpen, setThemeOpen] = useState(false);
@@ -19,6 +22,13 @@ export function Navbar({ scrollTo }: NavbarProps) {
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
+
+  const navItems = NAV_LINKS.map((l, i) => ({ href: l.href, label: c.nav[i] }));
+
+  const langOptions: { code: Language; label: string }[] = [
+    { code: "en", label: "EN" },
+    { code: "mr", label: "मराठी" },
+  ];
 
   return (
     <header
@@ -36,7 +46,7 @@ export function Navbar({ scrollTo }: NavbarProps) {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map((l) => (
+          {navItems.map((l) => (
             <button
               key={l.href}
               onClick={() => scrollTo(l.href)}
@@ -52,8 +62,30 @@ export function Navbar({ scrollTo }: NavbarProps) {
           ))}
         </nav>
 
-        {/* CTA + Theme switcher */}
+        {/* CTA + Language + Theme switcher */}
         <div className="hidden md:flex items-center gap-3">
+          {/* Language switcher */}
+          <div
+            className="flex items-center rounded-lg overflow-hidden border"
+            style={{ borderColor: "rgba(255,255,255,0.25)" }}
+          >
+            {langOptions.map((opt) => (
+              <button
+                key={opt.code}
+                onClick={() => setLang(opt.code)}
+                className="px-2.5 py-1.5 text-xs font-semibold transition-all"
+                style={{
+                  background: lang === opt.code ? theme.accent : "transparent",
+                  color: lang === opt.code ? theme.primary : "rgba(255,255,255,0.8)",
+                  fontFamily: "'Poppins', sans-serif",
+                }}
+                aria-pressed={lang === opt.code}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
+
           <a
             href="https://wa.me/919960404647"
             target="_blank"
@@ -65,7 +97,7 @@ export function Navbar({ scrollTo }: NavbarProps) {
             }}
           >
             <Phone className="w-4 h-4" />
-            Get Consultation
+            {c.navCta}
           </a>
 
           {/* Theme switcher */}
@@ -85,7 +117,7 @@ export function Navbar({ scrollTo }: NavbarProps) {
                 style={{ background: "white", borderColor: "rgba(0,0,0,0.1)" }}
               >
                 <div className="px-4 py-3 border-b" style={{ borderColor: "rgba(0,0,0,0.06)" }}>
-                  <p className="text-xs font-bold uppercase tracking-wider text-gray-500">Choose Theme</p>
+                  <p className="text-xs font-bold uppercase tracking-wider text-gray-500">{c.chooseTheme}</p>
                 </div>
                 {themes.map((t) => (
                   <button
@@ -125,7 +157,27 @@ export function Navbar({ scrollTo }: NavbarProps) {
           className="md:hidden border-t border-white/10 px-6 py-4"
           style={{ background: theme.navBg }}
         >
-          {NAV_LINKS.map((l) => (
+          {/* Language switcher (mobile) */}
+          <div className="flex items-center gap-2 mb-4">
+            {langOptions.map((opt) => (
+              <button
+                key={opt.code}
+                onClick={() => setLang(opt.code)}
+                className="flex-1 py-2 rounded-lg text-sm font-semibold transition-all border"
+                style={{
+                  background: lang === opt.code ? theme.accent : "transparent",
+                  color: lang === opt.code ? theme.primary : "rgba(255,255,255,0.8)",
+                  borderColor: lang === opt.code ? theme.accent : "rgba(255,255,255,0.2)",
+                  fontFamily: "'Poppins', sans-serif",
+                }}
+                aria-pressed={lang === opt.code}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
+
+          {navItems.map((l) => (
             <button
               key={l.href}
               onClick={() => { scrollTo(l.href); setMobileOpen(false); }}
@@ -144,7 +196,7 @@ export function Navbar({ scrollTo }: NavbarProps) {
               fontFamily: "'Poppins', sans-serif",
             }}
           >
-            Request Consultation
+            {c.mobileCta}
           </button>
         </div>
       )}
