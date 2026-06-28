@@ -115,8 +115,8 @@ export const PROJECTS: Project[] = [
     client: "OM Builders",
   },
   {
-    image: img_elite_r1,
-    images: [img_elite_r1, img_elite_r2, img_elite_r3, img_elite_r4, img_elite_r5, img_elite_r6, img_elite_r7, img_elite_r8, img_elite_r9],
+    image: img_elite_r6,
+    images: [img_elite_r6, img_elite_r1, img_elite_r2, img_elite_r3, img_elite_r4, img_elite_r5, img_elite_r7, img_elite_r8, img_elite_r9],
     title: "84 Elite – Township Development",
     location: "Latur, Maharashtra",
     category: "Residential",
